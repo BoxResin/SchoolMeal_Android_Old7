@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        applicationId "winapi251.app.schoolmeal"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 100
+        versionName "3.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        // 릴리즈 모드 옵션
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        // 디버그 모드 옵션
+        debug {
+            applicationIdSuffix '.debug'
+        }
+    }
+}
+
+// 의존성
+dependencies {
+    // 로컬 JAR
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // 코틀린
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // AndroidX
+    implementation 'androidx.appcompat:appcompat:1.0.0-rc01'
+    implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0-alpha05'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+
+    // 테스트
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+}

@@ -1,0 +1,6 @@
+<!-- 모바일 내비게이션 -->
+<navigation
+    xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:id = "@+id/mobile_navigation">
+
+</navigation>
